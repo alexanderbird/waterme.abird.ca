@@ -35,7 +35,7 @@
           const attributes = {
             id: this.getAttribute('id'),
             title: this.getAttribute('title'),
-            instruction: this.textContent,
+            instruction: this.getAttribute('instruction'),
           };
           this.theRoot.appendChild(getSection(attributes));
         }
@@ -43,27 +43,34 @@
 
     </script>
 
-    <plant-tile id='small-top-water' title='Top Watering Plants (S)'>
-      Water from the top until a small pool appears in the pot. If the water
-      overflows out of the bottom, remove it so that the plant isn't sitting in
-      water.
-    </plant-tile>
-    <plant-tile id='large-top-water' title='Top Watering Plants (L)'>
-      Water from the top until a small pool appears in the pot. If the water
-      overflows out of the bottom, remove it so that the plant isn't sitting in
-      water.
-    </plant-tile>
-    <plant-tile id='herman' title='Herman (Ti Plant)'>
-      Give a little water at the top
-    </plant-tile>
-    <plant-tile id='snake-plant' title='Snake Plant'>
-      Water from the bottom: fill the plate with water (the soil will absorb it from the bottom)
-    </plant-tile>
-    <plant-tile id='deck-honeysuckle' title='Deck Honeysuckle'>
-      Water heavily until you see water coming out the bottom of the container
-    </plant-tile>
-    <plant-tile id='front-containers' title='Front Containers'>
-      Water both containers, one or two pitchers of water each.
-    </plant-tile>
+    <h1>Bird Family Plants</h1>
+    <h2>Watering Guide</h2>
+
+    <div class='tiles'>
+      <plant-tile id='small-top-water' title='Top Watering Plants (S)'
+        instruction="Water from the top until a small pool appears in the pot. If the water overflows out of the bottom, remove it so that the plant isn't sitting in water."
+        >
+      </plant-tile>
+      <plant-tile id='large-top-water' title='Top Watering Plants (L)'
+        instruction="Water from the top until a small pool appears in the pot. If the water overflows out of the bottom, remove it so that the plant isn't sitting in water."
+        >
+      </plant-tile>
+      <plant-tile id='herman' title='Herman (Ti Plant)'
+        instruction="Give a little water at the top"
+        >
+      </plant-tile>
+      <plant-tile id='snake-plant' title='Snake Plant'
+        instruction="Water from the bottom: fill the plate with water (the soil will absorb it from the bottom)"
+        >
+      </plant-tile>
+      <plant-tile id='deck-honeysuckle' title='Deck Honeysuckle'
+        instruction="Water heavily until you see water coming out the bottom of the container"
+        >
+      </plant-tile>
+      <plant-tile id='front-containers' title='Front Containers'
+        instruction="Water both containers, one or two pitchers of water each."
+        >
+      </plant-tile>
+    </div>
   </body>
 </html>
