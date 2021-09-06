@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <title>Water Me!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪴</text></svg>">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <script>
+
+      function getSection({ id, title, instruction }) {
+        const section = document.createElement('section');
+        section.innerHTML = `
+          <h2>${title}</h2>
+          <img src='./assets/profile/${id}.jpg' />
+          <p>${instruction}</p>
+          <video style="max-width: 100%" controls alt="Watering instructions for ${title}"
+            src="./assets/instruction/${id}.mp4" type="video/mp4" />
+        `;
+        return section;
+      }
+
+      customElements.define('plant-tile', class PlantTile extends HTMLElement {
+        constructor() {
+          super();
+
+          this.theRoot = this.attachShadow({mode: 'open'});
+          const style = document.createElement('style');
+          style.innerHTML = '@import "./style.css";';
+          this.theRoot.appendChild(style);
+        }
+
+        connectedCallback() {
+          const attributes = {
+            id: this.getAttribute('id'),
+            title: this.getAttribute('title'),
+            instruction: this.textContent,
+          };
+          this.theRoot.appendChild(getSection(attributes));
+        }
+      });
+
+    </script>
+
+    <plant-tile id='small-top-water' title='Top Watering Plants (S)'>
+      Water from the top until a small pool appears in the pot. If the water
+      overflows out of the bottom, remove it so that the plant isn't sitting in
+      water.
+    </plant-tile>
+    <plant-tile id='large-top-water' title='Top Watering Plants (L)'>
+      Water from the top until a small pool appears in the pot. If the water
+      overflows out of the bottom, remove it so that the plant isn't sitting in
+      water.
+    </plant-tile>
+    <plant-tile id='herman' title='Herman (Ti Plant)'>
+      Give a little water at the top
+    </plant-tile>
+    <plant-tile id='snake-plant' title='Snake Plant'>
+      Water from the bottom: fill the plate with water (the soil will absorb it from the bottom)
+    </plant-tile>
+    <plant-tile id='deck-honeysuckle' title='Deck Honeysuckle'>
+      Water heavily until you see water coming out the bottom of the container
+    </plant-tile>
+    <plant-tile id='front-containers' title='Front Containers'>
+      Water both containers, one or two pitchers of water each.
+    </plant-tile>
+  </body>
+</html>
