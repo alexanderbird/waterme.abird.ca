@@ -37,8 +37,9 @@
           <h2>${title}</h2>
           <img src='./assets/profile/${id}.jpg' />
           <p>${instruction}</p>
-          <video style="max-width: 100%" controls alt="Watering instructions for ${title}"
-            src="./assets/instruction/${id}.mp4" type="video/mp4" />
+          <video style="max-width: 100%" controls alt="Watering instructions for ${title}">
+            <source src="./assets/instruction/${id}.mp4" type="video/mp4" >
+          </video>
         `;
         return section;
       }
